@@ -17,7 +17,7 @@ public class Main {
         while (!end) {
             turn.playTurn();
             boardPrinter.printBoard();
-            end = turn.isGameWon();
+            //end = turn.isGameWon();
             turn.playBotTurn();
             boardPrinter.printBoard();
             end = turn.isGameWon();

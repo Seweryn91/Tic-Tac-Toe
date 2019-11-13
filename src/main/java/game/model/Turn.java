@@ -19,15 +19,17 @@ public class Turn {
     }
 
     public void playBotTurn() {
+        if (!isGameWon()) {
         RandomNumberGenerator rng = new RandomNumberGenerator();
         int randomRow = rng.rng(board.getFields().length);
         int randomCol = rng.rng(board.getFields().length);
         Field field = board.getFields()[randomRow][randomCol];
-        if (field.getValue().equals(Value.EMPTY)|| !field.getValue().equals(Value.X) || !isGameWon()) {
+        if (field.getValue().equals(Value.EMPTY)) {
             field.setValue(Value.O);
             System.out.println("ROW:" + randomRow + " COL: " + randomCol);
         } else {
             playBotTurn();
+        }
         }
     }
 
