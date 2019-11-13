@@ -1,3 +1,4 @@
+import game.controller.FieldCheckerImpl;
 import game.model.Board;
 import game.view.BoardPrinter;
 import game.model.PatternChecker;
@@ -8,7 +9,8 @@ public class Main {
     public static void main(String[] args) {
         Board board = new Board();
         BoardPrinter boardPrinter = new BoardPrinter(board);
-        PatternChecker pattenChecker = new PatternChecker(board);
+        FieldCheckerImpl fieldChecker = new FieldCheckerImpl();
+        PatternChecker pattenChecker = new PatternChecker(board, fieldChecker);
         boardPrinter.printBoard();
         Turn turn = new Turn(board, pattenChecker);
         boolean end = turn.isGameWon();

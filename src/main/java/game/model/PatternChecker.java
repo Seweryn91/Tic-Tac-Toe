@@ -1,13 +1,18 @@
 package game.model;
 
+import game.controller.FieldCheckerImpl;
+
 import java.util.Arrays;
 
 public class PatternChecker {
 
     Board board;
+    FieldCheckerImpl fieldChecker;
 
-    public PatternChecker(Board board) {
+    public PatternChecker(Board board, FieldCheckerImpl fieldChecker) {
         this.board = board;
+        this.fieldChecker = fieldChecker;
+
     }
 
 
@@ -24,13 +29,13 @@ public class PatternChecker {
         Field field9 = board.getFields()[2][2];
 
 
-        if (field1.getValue() != Value.EMPTY) {
+        if (!fieldChecker.isFieldEmpty(field1)) {
             if (field1.getValue() == field2.getValue()) {
                 if (field3.getValue() == field1.getValue()) {  //check for match in 1st row
                     System.out.println("Player " + field1.getValue() + " won!");
                     return true;
                 }
-            } else if (field4.getValue() != Value.EMPTY) {
+            } else if (!fieldChecker.isFieldEmpty(field4)) {
                 if (field4.getValue() == field5.getValue()) {
                     if (field6.getValue() == field4.getValue()) {  //check for match in 2nd row
                         System.out.println("Player " + field4.getValue() + " won!");
@@ -38,7 +43,7 @@ public class PatternChecker {
                     }
                 }
             }
-        } else if (field7.getValue() != Value.EMPTY) {
+        } else if (!fieldChecker.isFieldEmpty(field7)) {
             if (field7.getValue() == field8.getValue()) {
                 if (field7.getValue() == field9.getValue()) {  //check for match in 3rd row
                     System.out.println("Player " + field7.getValue() + " won!");
@@ -62,21 +67,21 @@ public class PatternChecker {
         Field field8 = board.getFields()[2][1];
         Field field9 = board.getFields()[2][2];
 
-        if (field1.getValue() != Value.EMPTY) {
+        if (!fieldChecker.isFieldEmpty(field1)) {
             if (field1.getValue() == field4.getValue()) {
                 if (field7.getValue() == field1.getValue()) {  // check for match in 1st column
                     System.out.println("Player " + field1.getValue() + " won!");
                     return true;
                 }
             }
-        } else if (field2.getValue() != Value.EMPTY) {
+        } else if (!fieldChecker.isFieldEmpty(field2)) {
             if (field2.getValue() == field5.getValue()) {
                 if (field8.getValue() == field2.getValue()) {  // check for match in 2nd column
                     System.out.println("Player " + field2.getValue() + " won!");
                     return true;
                 }
             }
-        } else if (field3.getValue() != Value.EMPTY) {
+        } else if (!fieldChecker.isFieldEmpty(field3)) {
             if (field3.getValue() == field6.getValue()) {
                 if (field3.getValue() == field9.getValue()) {   //check for match in 3rd column
                     System.out.println("Player " + field3.getValue() + " won!");
@@ -96,17 +101,17 @@ public class PatternChecker {
         Field field7 = board.getFields()[2][0];
         Field field9 = board.getFields()[2][2];
 
-        if (field1.getValue() != Value.EMPTY) {
+        if (!fieldChecker.isFieldEmpty(field1)) {
             if (field1.getValue() == field5.getValue()) {
-                if (field1.getValue() == field9.getValue()) {  // check for match diagonally (\)
+                if (field1.getValue() == field9.getValue()) {  // check for match diagonally (top-left to bottom-right)
                     System.out.println("Player " + field1.getValue() + " won!");
                     return true;
                 }
             }
         }
-        if (field5.getValue() != Value.EMPTY) {
+        if (!fieldChecker.isFieldEmpty(field5)) {
             if (field5.getValue() == field3.getValue()) {
-                if (field7.getValue() == field3.getValue()) {   //check for match diagonally (/)
+                if (field7.getValue() == field3.getValue()) {   //check for match diagonally (bottom-left to top-right)
                     System.out.println("Player " + field3.getValue() + " won!");
                     return true;
                 }
