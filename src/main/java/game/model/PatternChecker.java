@@ -6,8 +6,8 @@ import java.util.Arrays;
 
 public class PatternChecker {
 
-    Board board;
-    FieldCheckerImpl fieldChecker;
+    private Board board;
+    private FieldCheckerImpl fieldChecker;
 
     public PatternChecker(Board board, FieldCheckerImpl fieldChecker) {
         this.board = board;
@@ -121,12 +121,15 @@ public class PatternChecker {
     }
 
     boolean checkForDraw() {
-        //TODO: Refactor method to check for matches properly
-        int flag = 0;
-        for (Field[] f : board.getFields()) {
-            if (Arrays.stream(f).noneMatch(field -> field.getValue().equals("EMPTY"))) { flag++; }
+        int emptyLeft = 0;
+        for (Field[] row : board.getFields()) {
+            for (Field field : row) {
+                if (field.getValue().equals(Value.EMPTY)) {
+                    emptyLeft++;
+                }
+            }
         }
-        System.out.println("flag" + flag);
-        return flag == 9;
+        System.out.println("\nflag" + emptyLeft);
+        return emptyLeft == 0;
     }
 }
