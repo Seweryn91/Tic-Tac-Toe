@@ -127,6 +127,10 @@ class PatternChecker {
                 }
             }
         }
-        return emptyLeft == 0;
+        if (emptyLeft == 0) {
+            messagePrinter.printDraw();
+            return true;
+        }
+        return false;
     }
 }
