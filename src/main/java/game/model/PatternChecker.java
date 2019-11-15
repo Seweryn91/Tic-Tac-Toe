@@ -3,15 +3,14 @@ package game.model;
 import game.controller.FieldCheckerImpl;
 import game.view.MessagePrinter;
 
-import java.util.Arrays;
 
-public class PatternChecker {
+class PatternChecker {
 
     private Board board;
     private FieldCheckerImpl fieldChecker;
     private MessagePrinter messagePrinter;
 
-    public PatternChecker(Board board, FieldCheckerImpl fieldChecker, MessagePrinter messagePrinter) {
+    PatternChecker(Board board, FieldCheckerImpl fieldChecker, MessagePrinter messagePrinter) {
         this.board = board;
         this.fieldChecker = fieldChecker;
         this.messagePrinter = messagePrinter;
@@ -19,7 +18,6 @@ public class PatternChecker {
 
 
     boolean checkRows() {
-
         Field field1 = board.getFields()[0][0];
         Field field2 = board.getFields()[0][1];
         Field field3 = board.getFields()[0][2];
@@ -58,7 +56,6 @@ public class PatternChecker {
 
 
     boolean checkColumns() {
-
         Field field1 = board.getFields()[0][0];
         Field field2 = board.getFields()[0][1];
         Field field3 = board.getFields()[0][2];
@@ -96,7 +93,6 @@ public class PatternChecker {
 
 
     boolean checkDiagonally() {
-
         Field field1 = board.getFields()[0][0];
         Field field3 = board.getFields()[0][2];
         Field field5 = board.getFields()[1][1];
