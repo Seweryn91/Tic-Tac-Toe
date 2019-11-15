@@ -3,22 +3,22 @@ package game.model;
 import game.controller.MovementController;
 
 
-public class Turn {
+class Game {
 
     private Board board;
     private PatternChecker patternChecker;
 
-    public Turn(Board board, PatternChecker patternChecker) {
+    Game(Board board, PatternChecker patternChecker) {
         this.board = board;
         this.patternChecker = patternChecker;
     }
 
-    public void playTurn() {
+    void playTurn() {
         MovementController movementController = new MovementController(board);
         movementController.getInput();
     }
 
-    public void playBotTurn() {
+    void playBotTurn() {
         if (!isGameWon()) {
         RandomNumberGenerator rng = new RandomNumberGenerator();
         int randomRow = rng.rng(board.getFields().length);
