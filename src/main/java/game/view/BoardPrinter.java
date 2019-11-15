@@ -35,5 +35,4 @@ public class BoardPrinter {
             if (i < fields.length-1) System.out.println("\n" + horizontalLine);
         }
     }
-
 }
