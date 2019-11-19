@@ -19,6 +19,7 @@ public class BoardPrinter {
         String empty = "   ";
         String horizontalLine = "---+---+---";
         Field[][] fields = board.getFields();
+        System.out.println("");
 
         for (int i = 0; i < fields.length; i++) {
             for (int j = 0; j < fields.length; j++) {

@@ -26,7 +26,7 @@ class Game {
         Field field = board.getFields()[randomRow][randomCol];
         if (field.getValue().equals(Value.EMPTY)) {
             field.setValue(Value.O);
-            System.out.println("ROW:" + randomRow + " COL: " + randomCol);
+            //System.out.println("ROW:" + randomRow + " COL: " + randomCol);
         } else {
             playBotTurn();
         }

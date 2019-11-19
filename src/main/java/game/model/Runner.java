@@ -19,11 +19,10 @@ public class Runner {
         boolean end = game.isGameWon();
         while (!end) {
             consoleCleaner.clearScreen();
+            boardPrinter.printBoard();
             game.playTurn();
             boardPrinter.printBoard();
-            consoleCleaner.clearScreen();
             game.playBotTurn();
-            consoleCleaner.clearScreen();
             boardPrinter.printBoard();
             end = game.isGameWon();
         }
